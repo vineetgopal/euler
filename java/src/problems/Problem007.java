@@ -2,9 +2,10 @@ package problems;
 
 import util.MathUtil;
 
-public class Problem007 {
-    public static long solve() {
-        return solve(10001);
+public class Problem007 implements Problem {
+    @Override
+    public void solve() {
+        System.out.println(solve(10001));
     }
     
     /**

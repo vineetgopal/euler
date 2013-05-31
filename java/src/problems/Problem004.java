@@ -2,9 +2,10 @@ package problems;
 
 import util.NumberUtil;
 
-public class Problem004 {
-    public static long solve() {
-        return solve(3);
+public class Problem004 implements Problem {
+    @Override
+    public void solve() {
+        System.out.println(solve(3));
     }
     
     private static long solve(int numDigits) {

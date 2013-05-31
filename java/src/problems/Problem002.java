@@ -1,8 +1,9 @@
 package problems;
 
-public class Problem002 {
-    public static int solve() {
-        return solve(4000000);
+public class Problem002 implements Problem {
+    @Override
+    public void solve() {
+        System.out.println(solve(4000000));
     }
     
     /**

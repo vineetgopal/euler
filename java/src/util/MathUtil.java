@@ -186,7 +186,7 @@ public class MathUtil {
     
     public static Set<Integer> factors(int num) {
         Set<Integer> factors = Sets.newHashSet();
-        int factor = 2;
+        int factor = 1;
         int max = (int) Math.sqrt(num) + 1;
         while (factor <= max) {
             if (num % factor == 0) {
@@ -196,6 +196,24 @@ public class MathUtil {
             factor++;
         }
         return factors;
+    }
+    
+    public static int numDivisors(int num) {
+        Multiset<Integer> set = primeFactorization(num);
+        int numDivisors = 1;
+        for (int i : set.elementSet()) {
+            numDivisors *= set.count(i) + 1;
+        }
+        return numDivisors;
+    }
+    
+    public static long numDivisors(long num) {
+        Multiset<Long> set = primeFactorization(num);
+        long numDivisors = 1;
+        for (long i : set.elementSet()) {
+            numDivisors *= set.count(i) + 1;
+        }
+        return numDivisors;
     }
     
     public static Set<Long> factors(long num) {
@@ -214,5 +232,30 @@ public class MathUtil {
     
     public static boolean isPrime(long num) {
         return new BigInteger("" + num).isProbablePrime(10);
+    }
+    
+    public static boolean[] primeSieve(int max) {
+        boolean[] array = new boolean[max+1];
+        for (int i = 2; i <= max; i++) {
+            array[i] = true;
+        }
+        for (int i = 2; i <= max / 2; i++) {
+            if (array[i]) {
+                for (int j = 2*i; j <= max; j+=i) {
+                    array[j] = false;
+                }
+            }
+        }
+        return array;
+    }
+    
+    public static long choose(int n, int k) {
+        double prod = 1;
+        k = Math.max(k, n-k);
+        for (int i = k + 1, j = n-k; i <= n && j>=1; i++, j--) {
+            prod *= i;
+            prod /= j;
+        }
+        return Math.round(prod);
     }
 }

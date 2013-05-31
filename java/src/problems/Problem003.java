@@ -3,9 +3,10 @@ package problems;
 import util.CollectionsUtil;
 import util.MathUtil;
 
-public class Problem003 {
-    public static long solve() {
-        return solve(600851475143L);
+public class Problem003 implements Problem {
+    @Override
+    public void solve() {
+        System.out.println(solve(600851475143L));
     }
     
     private static long solve(long num) {
