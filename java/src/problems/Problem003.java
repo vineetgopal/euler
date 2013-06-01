@@ -10,7 +10,6 @@ public class Problem003 implements Problem {
     }
     
     private static long solve(long num) {
-        System.out.println(MathUtil.primeFactors(num));
         return CollectionsUtil.maxLong(MathUtil.primeFactors(num));
     }
 }

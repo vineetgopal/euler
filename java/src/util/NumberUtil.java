@@ -21,17 +21,6 @@ public class NumberUtil {
         numberMap.put(17, "seventeen");numberMap.put(18, "eighteen");numberMap.put(19, "nineteen");
     }
     
-    public static boolean isPalindrome(long num) {
-        String string = String.valueOf(num);
-        int length = string.length();
-        for (int i = 0; i < length/2; i++) {
-            if (string.charAt(i) != string.charAt(length - 1 - i)) {
-                return false;
-            }
-        }
-        return true;
-    }
-    
     /**
      * Assumes num is between 0 and 999,999
      * @param num

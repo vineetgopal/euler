@@ -1,9 +1,11 @@
 package util;
 
 import java.math.BigInteger;
+import java.util.List;
 import java.util.Set;
 
 import com.google.common.collect.HashMultiset;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.Sets;
 
@@ -184,25 +186,38 @@ public class MathUtil {
         return factors;
     }
     
-    public static Set<Integer> factors(int num) {
-        Set<Integer> factors = Sets.newHashSet();
+    public static Set<Integer> divisors(int num) {
+        Set<Integer> divisors = Sets.newHashSet();
         int factor = 1;
         int max = (int) Math.sqrt(num) + 1;
         while (factor <= max) {
             if (num % factor == 0) {
-                factors.add(factor);
-                factors.add(num / factor);
+                divisors.add(factor);
+                divisors.add(num / factor);
             }
             factor++;
         }
-        return factors;
+        return divisors;
+    }
+    
+    public static Set<Integer> properDivisors(int num) {
+        Set<Integer> divisors = divisors(num);
+        divisors.remove(num);
+        return divisors;
     }
     
     public static int numDivisors(int num) {
+        if (num < 20000) {
+            return divisors(num).size();
+        }
         Multiset<Integer> set = primeFactorization(num);
+        return numDivisors(set);
+    }
+    
+    public static int numDivisors(Multiset<Integer> primeFactorization) {
         int numDivisors = 1;
-        for (int i : set.elementSet()) {
-            numDivisors *= set.count(i) + 1;
+        for (int i : primeFactorization.elementSet()) {
+            numDivisors *= primeFactorization.count(i) + 1;
         }
         return numDivisors;
     }
@@ -216,18 +231,24 @@ public class MathUtil {
         return numDivisors;
     }
     
-    public static Set<Long> factors(long num) {
-        Set<Long> factors = Sets.newHashSet();
-        long factor = 2;
+    public static Set<Long> divisors(long num) {
+        Set<Long> divisors = Sets.newHashSet();
+        long factor = 1;
         long max = (int) Math.sqrt(num) + 1;
         while (factor <= max) {
             if (num % factor == 0) {
-                factors.add(factor);
-                factors.add(num / factor);
+                divisors.add(factor);
+                divisors.add(num / factor);
             }
             factor++;
         }
-        return factors;
+        return divisors;
+    }
+    
+    public static Set<Long> properDivisors(long num) {
+        Set<Long> divisors = divisors(num);
+        divisors.remove(num);
+        return divisors;
     }
     
     public static boolean isPrime(long num) {
@@ -257,5 +278,30 @@ public class MathUtil {
             prod /= j;
         }
         return Math.round(prod);
+    }
+    
+    public static long factorial(long num) {
+        long ret = 1;
+        for (int i = 2; i <= num; i++) {
+            ret *= i;
+        }
+        return ret;
+    }
+    
+    public static int lengthCycle(int numerator, int denominator) {
+        Set<Integer> insides = Sets.newHashSet();
+        List<Integer> list = Lists.newArrayList();
+        numerator = numerator % denominator;
+        int inside = numerator;
+        while (inside != 0 && !insides.contains(inside)) {
+            insides.add(inside);
+            list.add(inside);
+            inside *= 10;
+            inside = inside - (inside / denominator) * denominator;
+        }
+        if (inside == 0) {
+            return 0;
+        }
+        return list.size() - list.indexOf(inside);
     }
 }
