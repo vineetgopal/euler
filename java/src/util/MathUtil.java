@@ -10,7 +10,13 @@ import com.google.common.collect.Multiset;
 import com.google.common.collect.Sets;
 
 public class MathUtil {
-    
+    private static int MAX_LOW_PRIME = 1000000;
+    private static Set<Integer> LOW_PRIMES = Sets.newHashSet();
+    static {
+        long time = System.currentTimeMillis();
+        LOW_PRIMES.addAll(CollectionsUtil.getTrueIndices(primeSieve(MAX_LOW_PRIME)));
+        System.out.println(System.currentTimeMillis() - time);
+    }
     /**
      * Returns the sum of all integers between start and last, inclusive.
      * @param start
@@ -252,7 +258,11 @@ public class MathUtil {
     }
     
     public static boolean isPrime(long num) {
-        return new BigInteger("" + num).isProbablePrime(10);
+        if (num <= MAX_LOW_PRIME) {
+            return LOW_PRIMES.contains(num);
+        } else {
+            return new BigInteger("" + num).isProbablePrime(30);
+        }
     }
     
     public static boolean[] primeSieve(int max) {

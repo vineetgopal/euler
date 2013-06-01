@@ -10,7 +10,7 @@ public class Main {
         for (int i = 1; i <= times.size(); i++) {
             System.out.printf("Problem %d: %fms\n", i, times.get(i-1));
         }
-//        System.out.printf("Running time: %fms\n", testRunningTime(40, 5));
+//        System.out.printf("Running time: %fms\n", testRunningTime(42, 20));
        //testRunningTime(32, 50);
 //        long time = System.nanoTime();
 //        new Problem024().solve();
@@ -34,7 +34,7 @@ public class Main {
         while(true) {
             double timeTaken;
             try {
-                timeTaken = testRunningTime(problemNum, 10);
+                timeTaken = testRunningTime(problemNum, 50);
             } catch (ClassNotFoundException e) {
                 break;
             } catch (InstantiationException e) {
