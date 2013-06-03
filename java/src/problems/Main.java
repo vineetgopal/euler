@@ -6,15 +6,11 @@ import com.google.common.collect.Lists;
 
 public class Main {
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-        List<Double> times = runAllProblems();
-        for (int i = 1; i <= times.size(); i++) {
-            System.out.printf("Problem %d: %fms\n", i, times.get(i-1));
-        }
-//        System.out.printf("Running time: %fms\n", testRunningTime(42, 20));
-       //testRunningTime(32, 50);
-//        long time = System.nanoTime();
-//        new Problem024().solve();
-//        System.out.printf("Time taken: %fms\n", (System.nanoTime() - time) / 1e6);
+//        List<Double> times = runAllProblems();
+//        for (int i = 1; i <= times.size(); i++) {
+//            System.out.printf("Problem %d: %fms\n", i, times.get(i-1));
+//        }
+        System.out.printf("Running time: %fms\n", testRunningTime(50, 10));
     }
     
     public static double testRunningTime(int problemNum, int times) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
@@ -24,7 +20,6 @@ public class Main {
             problem.solve();
         }
         double timeTaken = (System.nanoTime() - time) / 1e6 / times;
-        //System.out.printf("Time taken per iter: %fms\n", timeTaken);
         return timeTaken;
     }
     

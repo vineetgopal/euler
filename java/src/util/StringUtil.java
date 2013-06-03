@@ -74,13 +74,13 @@ public class StringUtil {
         return set;
     }
     
-    private static void permutations(String string, String prefix, Set<String> set) {
-        if (string.length() == 1) {
-            set.add(prefix+string);
+    private static void permutations(String chars, String prefix, Set<String> set) {
+        if (chars.length() == 1) {
+            set.add(prefix+chars);
         } else {
-            for (int i = 0; i < string.length(); i++) {
-                permutations(string.substring(0, i) + string.substring(i + 1), 
-                        prefix + string.charAt(i), set);
+            for (int i = 0; i < chars.length(); i++) {
+                permutations(chars.substring(0, i) + chars.substring(i + 1), 
+                        prefix + chars.charAt(i), set);
             }
         }
     }

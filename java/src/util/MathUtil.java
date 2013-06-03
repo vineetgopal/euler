@@ -11,11 +11,12 @@ import com.google.common.collect.Sets;
 
 public class MathUtil {
     private static int MAX_LOW_PRIME = 1000000;
-    private static Set<Integer> LOW_PRIMES = Sets.newHashSet();
+    private static final boolean[] LOW_PRIMES = primeSieve(MAX_LOW_PRIME);
     static {
-        long time = System.currentTimeMillis();
-        LOW_PRIMES.addAll(CollectionsUtil.getTrueIndices(primeSieve(MAX_LOW_PRIME)));
-        System.out.println(System.currentTimeMillis() - time);
+//        LOW_PRIMES.addAll(CollectionsUtil.getTrueIndices(primeSieve(MAX_LOW_PRIME)));
+//        for (int i : CollectionsUtil.getTrueIndices(primeSieve(MAX_LOW_PRIME))) {
+//            LOW_PRIMES.add((long) i);
+//        }
     }
     /**
      * Returns the sum of all integers between start and last, inclusive.
@@ -257,9 +258,17 @@ public class MathUtil {
         return divisors;
     }
     
+    public static boolean isPrime(int num) {
+        if (num <= MAX_LOW_PRIME) {
+            return LOW_PRIMES[num];
+        } else {
+            return new BigInteger("" + num).isProbablePrime(30);
+        }
+    }
+    
     public static boolean isPrime(long num) {
         if (num <= MAX_LOW_PRIME) {
-            return LOW_PRIMES.contains(num);
+            return LOW_PRIMES[(int) num];
         } else {
             return new BigInteger("" + num).isProbablePrime(30);
         }
