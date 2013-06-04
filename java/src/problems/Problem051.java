@@ -21,8 +21,8 @@ public class Problem051 implements Problem {
         while (true) {
             int limit = (int) Math.pow(10, numDigits);
             int start = (int) Math.pow(10, numDigits-1);
-            List<Integer> list = CollectionsUtil.getTrueIndices(MathUtil.primeSieve(limit-1), start, limit-1);
-            Set<Integer> primes = Sets.newHashSet(list);
+            boolean[] primes = MathUtil.primeSieve(limit-1);
+            List<Integer> list = CollectionsUtil.getTrueIndices(primes, start, limit-1);
             for (int prime : list) {
                 String pString = Integer.toString(prime);
                 Set<String> permutations = getMatchingIndices(pString);
@@ -30,15 +30,20 @@ public class Problem051 implements Problem {
                     if (size >= 8 && perm.length() % 3 != 0) {
                         continue;
                     }
+                    
                     char[] pArr = pString.toCharArray();
                     int count = 0;
-                    char[] array = perm.toCharArray();
+                    int[] array = getInts(perm.toCharArray());
                     for (char d = '0'; d <= '9'; d++) {
-                        for (char c : array) {
-                            pArr[(int) (c-'0')] = d;
+                        for (int c : array) {
+                            pArr[c] = d;
                         }
-                        if (primes.contains(Integer.parseInt(String.copyValueOf(pArr)))) {
+                        int val = Integer.parseInt(String.copyValueOf(pArr));
+                        if (val >= start && primes[Integer.parseInt(String.copyValueOf(pArr))]) {
                             count++;
+                        }
+                        if (size - count > '9'-d) {
+                            break;
                         }
                     }
                     if (count == size) {
@@ -50,15 +55,23 @@ public class Problem051 implements Problem {
         }
     }
     
-    private static Set<String> getMatchingIndices(String string) {
-        Set<String> ret = Sets.newHashSet();
-        for (char c : new char[] {'0','1','2','3','4','5','6','7','8','9'}) {
-            ret.addAll(getMatchingIndices(string, 0, c));
+    private static int[] getInts(char[] array) {
+        int[] ret = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            ret[i] = array[i] - '0';
         }
         return ret;
     }
     
-    private static List<String> getMatchingIndices(String string, int index, char match) {
+    private static Set<String> getMatchingIndices(String string) {
+        Set<String> ret = Sets.newHashSet();
+        for (char c : new char[] {'0','1','2','3','4','5','6','7','8','9'}) {
+            ret.addAll(getMatchingIndices(string, c));
+        }
+        return ret;
+    }
+    
+    private static List<String> getMatchingIndices(String string, char match) {
         List<String> ret = Lists.newArrayList("");
         for (int i = 0; i < string.length(); i++) {
             if (string.charAt(i) == match) {
@@ -71,5 +84,4 @@ public class Problem051 implements Problem {
         ret.remove(0);
         return ret;
     }
-
 }
