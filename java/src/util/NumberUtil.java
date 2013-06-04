@@ -1,6 +1,9 @@
 package util;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Map;
+import java.util.Scanner;
 
 import com.google.common.collect.Maps;
 
@@ -58,5 +61,20 @@ public class NumberUtil {
             }
         }
         return string;
+    }
+    
+    public static int[] readInts(String filename, String delim) {
+        Scanner scanner;
+        try {
+            scanner = new Scanner(new File(filename));
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        String[] string = scanner.nextLine().split(delim);
+        int[] nums = new int[string.length];
+        for (int i = 0; i < string.length; i++) {
+            nums[i] = Integer.parseInt(string[i]);
+        }
+        return nums;
     }
 }

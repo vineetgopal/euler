@@ -71,8 +71,12 @@ public class CollectionsUtil {
     }
     
     public static List<Integer> getTrueIndices(boolean[] array) {
+        return getTrueIndices(array, 0, array.length - 1);
+    }
+    
+    public static List<Integer> getTrueIndices(boolean[] array, int start, int end) {
         List<Integer> list = Lists.newArrayList();
-        for (int i = 0; i < array.length; i++) {
+        for (int i = start; i <= end; i++) {
             if(array[i]) {
                 list.add(i);
             }

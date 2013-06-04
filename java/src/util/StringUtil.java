@@ -70,18 +70,40 @@ public class StringUtil {
     
     public static Set<String> permutations(String string) {
         Set<String> set = Sets.newHashSet();
-        permutations(string, "", set);
+        permutations(string, "", set, string.length());
         return set;
     }
     
-    private static void permutations(String chars, String prefix, Set<String> set) {
-        if (chars.length() == 1) {
+    public static Set<String> permutations(String string, int length) {
+        Set<String> set = Sets.newHashSet();
+        permutations(string, "", set, length);
+        return set;
+    }
+    
+    public static String reverse(String string) {
+        StringBuilder b = new StringBuilder(string);
+        b.reverse();
+        return b.toString();
+    }
+    
+    private static void permutations(String chars, String prefix, Set<String> set, int length) {
+        if (length == prefix.length()) {
+            set.add(prefix);
+        } else if (chars.length() == 1) {
             set.add(prefix+chars);
         } else {
             for (int i = 0; i < chars.length(); i++) {
                 permutations(chars.substring(0, i) + chars.substring(i + 1), 
-                        prefix + chars.charAt(i), set);
+                        prefix + chars.charAt(i), set, length);
             }
         }
+    }
+    
+    public static int sumDigits(String string) {
+        int sum = 0;
+        for (int i = 0; i < string.length(); i++) {
+            sum += (int) (string.charAt(i) - '0');
+        }
+        return sum;
     }
 }
