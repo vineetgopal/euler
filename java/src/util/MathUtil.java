@@ -1,6 +1,7 @@
 package util;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -276,9 +277,7 @@ public class MathUtil {
     
     public static boolean[] primeSieve(int max) {
         boolean[] array = new boolean[max+1];
-        for (int i = 2; i <= max; i++) {
-            array[i] = true;
-        }
+        Arrays.fill(array, 2,max,true);
         for (int i = 2; i <= max / 2; i++) {
             if (array[i]) {
                 for (int j = 2*i; j <= max; j+=i) {

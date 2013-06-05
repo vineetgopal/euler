@@ -6,11 +6,11 @@ import com.google.common.collect.Lists;
 
 public class Main {
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-        List<Double> times = runAllProblems();
-        for (int i = 1; i <= times.size(); i++) {
-            System.out.printf("Problem %d: %fms\n", i, times.get(i-1));
-        }
-//        System.out.printf("Running time: %fms\n", testRunningTime(51, 1));
+//        List<Double> times = runAllProblems();
+//        for (int i = 1; i <= times.size(); i++) {
+//            System.out.printf("Problem %d: %fms\n", i, times.get(i-1));
+//        }
+        System.out.printf("Running time: %fms\n", testRunningTime(65, 1));
     }
     
     public static double testRunningTime(int problemNum, int times) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
@@ -38,7 +38,6 @@ public class Main {
                 throw new RuntimeException(e);
             }
             times.add(timeTaken);
-            //System.out.printf("Problem %d: %fms\n", problemNum, (System.nanoTime() - time) / 1e6);
             problemNum++;
         }
         return times;

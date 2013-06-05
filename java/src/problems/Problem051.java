@@ -25,12 +25,11 @@ public class Problem051 implements Problem {
             List<Integer> list = CollectionsUtil.getTrueIndices(primes, start, limit-1);
             for (int prime : list) {
                 String pString = Integer.toString(prime);
-                Set<String> permutations = getMatchingIndices(pString);
+                Set<String> permutations = getMatchingIndices(pString, 10 - size);
                 for (String perm : permutations) {
                     if (size >= 8 && perm.length() % 3 != 0) {
                         continue;
                     }
-                    
                     char[] pArr = pString.toCharArray();
                     int count = 0;
                     int[] array = getInts(perm.toCharArray());
@@ -63,10 +62,11 @@ public class Problem051 implements Problem {
         return ret;
     }
     
-    private static Set<String> getMatchingIndices(String string) {
+    private static char[] chars = new char[] {'0','1','2','3','4','5','6','7','8','9'};
+    private static Set<String> getMatchingIndices(String string, int max) {
         Set<String> ret = Sets.newHashSet();
-        for (char c : new char[] {'0','1','2','3','4','5','6','7','8','9'}) {
-            ret.addAll(getMatchingIndices(string, c));
+        for (int i = 0; i <= max; i++) {
+            ret.addAll(getMatchingIndices(string, chars[i]));
         }
         return ret;
     }

@@ -51,6 +51,22 @@ public class CollectionsUtil {
         return max;
     }
     
+    /**
+     * Returns the minimum long in the collection. Requires a non-empty collection.
+     * @param nums
+     * @return
+     */
+    public static long minLong(Collection<Long> nums) {
+        if (nums.size() == 0) {
+            throw new IllegalArgumentException("Empty collection passed to max");
+        }
+        long min = nums.iterator().next();
+        for (long i : nums) {
+            min = Math.min(i, min);
+        }
+        return min;
+    }
+    
     public static <E> Multiset<E> combinedMax(Multiset<E> one, Multiset<E> two) {
         Multiset<E> set = HashMultiset.create();
         for (E e : one.elementSet()) {
