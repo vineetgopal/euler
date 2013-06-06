@@ -6,7 +6,7 @@ public class Problem065 implements Problem {
 
     @Override
     public void solve() {
-        System.out.println(solve(2));
+        System.out.println(solve(100));
     }
     
     private static int solve(int desiredN) {

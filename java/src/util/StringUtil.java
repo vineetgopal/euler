@@ -86,6 +86,15 @@ public class StringUtil {
         return b.toString();
     }
     
+    public static long reverse(long num) {
+        long ret = 0;
+        while (num > 0) {
+            ret = ret * 10 + num % 10;
+            num /= 10;
+        }
+        return ret;
+    }
+    
     private static void permutations(String chars, String prefix, Set<String> set, int length) {
         if (length == prefix.length()) {
             set.add(prefix);

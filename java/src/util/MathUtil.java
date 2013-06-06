@@ -11,14 +11,14 @@ import com.google.common.collect.Multiset;
 import com.google.common.collect.Sets;
 
 public class MathUtil {
-    private static int MAX_LOW_PRIME = 1000000;
-    private static final boolean[] LOW_PRIMES = primeSieve(MAX_LOW_PRIME);
-    static {
+//    private static int MAX_LOW_PRIME = 1000000;
+//    private static final boolean[] LOW_PRIMES = primeSieve(MAX_LOW_PRIME);
+//    static {
 //        LOW_PRIMES.addAll(CollectionsUtil.getTrueIndices(primeSieve(MAX_LOW_PRIME)));
 //        for (int i : CollectionsUtil.getTrueIndices(primeSieve(MAX_LOW_PRIME))) {
 //            LOW_PRIMES.add((long) i);
 //        }
-    }
+//    }
     /**
      * Returns the sum of all integers between start and last, inclusive.
      * @param start
@@ -260,19 +260,11 @@ public class MathUtil {
     }
     
     public static boolean isPrime(int num) {
-        if (num <= MAX_LOW_PRIME) {
-            return LOW_PRIMES[num];
-        } else {
             return new BigInteger("" + num).isProbablePrime(30);
-        }
     }
     
     public static boolean isPrime(long num) {
-        if (num <= MAX_LOW_PRIME) {
-            return LOW_PRIMES[(int) num];
-        } else {
-            return new BigInteger("" + num).isProbablePrime(30);
-        }
+            return new BigInteger("" + num).isProbablePrime(10);
     }
     
     public static boolean[] primeSieve(int max) {
@@ -291,7 +283,7 @@ public class MathUtil {
     public static long choose(int n, int k) {
         double prod = 1;
         k = Math.max(k, n-k);
-        for (int i = k + 1, j = n-k; i <= n && j>=1; i++, j--) {
+        for (int i = k + 1, j = n-k; i <= n; i++, j--) {
             prod *= i;
             prod /= j;
         }

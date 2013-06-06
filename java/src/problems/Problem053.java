@@ -1,6 +1,5 @@
 package problems;
 
-import util.MathUtil;
 
 public class Problem053 implements Problem {
 
@@ -13,7 +12,7 @@ public class Problem053 implements Problem {
         int total = 0;
         for (int n = minN; n <= maxN; n++) {
             for (int k = 1; k <= n/2; k++) {
-                if (MathUtil.choose(n, k) >= limit) {
+                if (chooseGreaterThan(n, k, limit)) {
                     if (n % 2 == 0) {
                         total += (n/2 - k)*2 + 1; 
                     } else {
@@ -24,6 +23,19 @@ public class Problem053 implements Problem {
             }
         }
         return total;
+    }
+    
+    private static boolean chooseGreaterThan(int n, int k, int limit) {
+        double prod = 1;
+        k = Math.max(k, n-k);
+        for (int i = k + 1, j = n-k; i <= n; i++, j--) {
+            prod *= i;
+            prod /= j;
+            if (prod >= limit) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

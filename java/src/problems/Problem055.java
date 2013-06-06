@@ -24,12 +24,14 @@ public class Problem055 implements Problem {
     
     private static int getCount(long num, int maxIter) {
         int count = 0;
-        num = num + Long.parseLong(StringUtil.reverse(Long.toString(num)));
-        while (num < Long.MAX_VALUE / 10 && !StringUtil.isPalindrome(Long.toString(num)) && count < maxIter) {
-            num = num + Long.parseLong(StringUtil.reverse(Long.toString(num)));
+        num = num + StringUtil.reverse(num);
+        long reverse = StringUtil.reverse(num);
+        while (num < Long.MAX_VALUE / 10 && num != reverse && count < maxIter) {
+            num = num + reverse;
+            reverse = StringUtil.reverse(num);
             count++;
         }
-        if (StringUtil.isPalindrome(Long.toString(num)) || count == maxIter) {
+        if (reverse == num || count == maxIter) {
             return count;
         } else {
             return count + getCount(new BigInteger("" + num), maxIter - count);
@@ -39,8 +41,10 @@ public class Problem055 implements Problem {
     private static int getCount(BigInteger num, int maxIter) {
         num = num.add(new BigInteger(StringUtil.reverse(num.toString())));
         int count = 0;
-        while (!StringUtil.isPalindrome(num.toString()) && count < maxIter) {
-            num = num.add(new BigInteger(StringUtil.reverse(num.toString())));
+        BigInteger reverse = new BigInteger(StringUtil.reverse(num.toString()));
+        while (!num.equals(reverse) && count < maxIter) {
+            num = num.add(reverse);
+            reverse = new BigInteger(StringUtil.reverse(num.toString()));
             count++;
         }
         return count;
