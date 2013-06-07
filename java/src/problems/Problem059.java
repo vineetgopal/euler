@@ -12,9 +12,9 @@ import com.google.common.primitives.Ints;
 public class Problem059 implements Problem {
 
     @Override
-    public void solve() {
+    public String solve() {
         List<Integer> list = Ints.asList(NumberUtil.readInts("Problem059.txt", ","));
-        System.out.println(solve(3, list));
+        return "" + solve(3, list);
     }
     
     private static int solve(int passwordSize, List<Integer> list) {

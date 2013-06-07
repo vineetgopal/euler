@@ -5,8 +5,8 @@ import java.math.BigInteger;
 public class Problem057 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(1000));
+    public String solve() {
+        return "" + solve(1000);
     }
     
     private static int solve(int numExpansions) {

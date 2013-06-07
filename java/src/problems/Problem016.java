@@ -5,8 +5,8 @@ import java.math.BigInteger;
 public class Problem016 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(2,1000));
+    public String solve() {
+        return "" + solve(2,1000);
     }
     
     private static int solve(int e, int power) {

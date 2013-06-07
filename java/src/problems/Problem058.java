@@ -5,8 +5,8 @@ import util.MathUtil;
 public class Problem058 implements Problem{
 
     @Override
-    public void solve() {
-        System.out.println(solve(0.1));
+    public String solve() {
+        return "" + solve(0.1);
     }
     
     private static long solve(double desired) {

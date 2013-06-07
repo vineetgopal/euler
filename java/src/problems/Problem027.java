@@ -8,8 +8,8 @@ import util.MathUtil;
 public class Problem027 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(1000,1000));
+    public String solve() {
+        return "" + solve(1000,1000);
     }
     
     private static int solve(int maxA, int maxB) {

@@ -1,5 +1,5 @@
 package problems;
 
 public interface Problem {
-    public void solve();
+    public String solve();
 }

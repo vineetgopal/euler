@@ -9,8 +9,8 @@ import com.google.common.collect.Sets;
 public class Problem032 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solveFor9());
+    public String solve() {
+        return "" + solveFor9();
     }
     
     private static int solveFor9() {

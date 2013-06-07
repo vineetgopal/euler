@@ -11,8 +11,8 @@ import com.google.common.collect.Sets;
 
 public class Problem004 implements Problem {
     @Override
-    public void solve() {
-        System.out.println(solve(3));
+    public String solve() {
+        return "" + solve(3);
     }
     
     private static long solve(int numDigits) {

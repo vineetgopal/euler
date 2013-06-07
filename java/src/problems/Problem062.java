@@ -12,8 +12,8 @@ import com.google.common.collect.Multimap;
 public class Problem062 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(5));
+    public String solve() {
+        return "" + solve(5);
     }
     
     private static long solve(int num) {

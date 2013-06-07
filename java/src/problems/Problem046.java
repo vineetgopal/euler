@@ -5,7 +5,7 @@ import util.MathUtil;
 public class Problem046 implements Problem {
 
     @Override
-    public void solve() {
+    public String solve() {
         for (int i = 3; ; i+=2) {
             if (MathUtil.isPrime(i)) {
                 continue;
@@ -19,8 +19,7 @@ public class Problem046 implements Problem {
                 }
             }
             if (!works) {
-                System.out.println(i);
-                break;
+                return "" + i;
             }
         }
     }

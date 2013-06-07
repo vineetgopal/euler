@@ -2,8 +2,8 @@ package problems;
 
 public class Problem006 implements Problem {
     @Override
-    public void solve() {
-        System.out.println(solve(100));
+    public String solve() {
+        return "" + solve(100);
     }
     
     private static long solve(long limit) {

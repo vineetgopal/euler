@@ -8,8 +8,8 @@ import com.google.common.primitives.Ints;
 public class Problem023 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(20161));
+    public String solve() {
+        return "" + solve(20161);
     }
     
     private static long solve(int MAX) {

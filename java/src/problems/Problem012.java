@@ -5,8 +5,8 @@ import util.MathUtil;
 public class Problem012 implements Problem{
 
     @Override
-    public void solve() {
-        System.out.println(solve(500));
+    public String solve() {
+        return "" + solve(500);
     }
     
     private static int solve(int numDivisors) {

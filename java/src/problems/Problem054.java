@@ -13,7 +13,7 @@ import com.google.common.collect.TreeMultiset;
 
 public class Problem054 implements Problem {
     @Override
-    public void solve() {
+    public String solve() {
         List<Hand> oneHands = Lists.newArrayList();
         List<Hand> twoHands = Lists.newArrayList();
         Scanner scanner;
@@ -27,7 +27,7 @@ public class Problem054 implements Problem {
             oneHands.add(new Hand(string, 0));
             twoHands.add(new Hand(string, 5));
         }
-        System.out.println(solve(oneHands, twoHands));
+        return "" + solve(oneHands, twoHands);
     }
     
     private static int solve(List<Hand> oneHands, List<Hand> twoHands) {

@@ -12,7 +12,7 @@ public class Problem044 implements Problem {
      * @return
      */
     @Override
-    public void solve() {
+    public String solve() {
         int min = Integer.MAX_VALUE;
         Set<Integer> numbers = Sets.newHashSet();
         numbers.add(1);
@@ -33,6 +33,6 @@ public class Problem044 implements Problem {
             }
             numbers.add(c);
         }
-        System.out.println(min);
+        return "" + min;
     }
 }

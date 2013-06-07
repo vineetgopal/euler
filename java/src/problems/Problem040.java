@@ -7,8 +7,8 @@ import com.google.common.collect.Lists;
 public class Problem040 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(Lists.newArrayList(1, 10, 100, 1000, 10000, 100000, 1000000)));
+    public String solve() {
+        return "" + solve(Lists.newArrayList(1, 10, 100, 1000, 10000, 100000, 1000000));
     }
     
     private static long solve(List<Integer> indices) {

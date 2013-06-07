@@ -9,10 +9,10 @@ import com.google.common.collect.Sets;
 public class Problem038 implements Problem {
 
     @Override
-    public void solve() {
+    public String solve() {
         Set<Character> desired = StringUtil.DIGITS;
         desired.remove('0');
-        System.out.println(solve(desired));
+        return "" + solve(desired);
     }
     
     public static long solve(Set<Character> desired) {

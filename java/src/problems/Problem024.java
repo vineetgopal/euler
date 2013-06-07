@@ -7,8 +7,8 @@ import util.MathUtil;
 public class Problem024 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve("0123456789".toCharArray(), 1000000));
+    public String solve() {
+        return "" + solve("0123456789".toCharArray(), 1000000);
     }
     
     /**

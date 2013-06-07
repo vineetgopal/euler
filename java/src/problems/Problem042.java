@@ -14,10 +14,10 @@ public class Problem042 implements Problem {
         }
     }
     @Override
-    public void solve() {
+    public String solve() {
         try {
             String[] strings = StringUtil.readStringsFromFile("Problem042.txt", ",", "\"");
-            System.out.println(solve(strings));
+            return "" + solve(strings);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }

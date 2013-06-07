@@ -3,8 +3,8 @@ package problems;
 public class Problem009 implements Problem{
 
     @Override
-    public void solve() {
-        System.out.println(solve(1000));
+    public String solve() {
+        return "" + solve(1000);
     }
     
     private static long solve(int sum) {

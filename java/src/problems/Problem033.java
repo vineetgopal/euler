@@ -6,8 +6,8 @@ import util.MathUtil;
 public class Problem033 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(10, 99, 99));
+    public String solve() {
+        return "" + solve(10, 99, 99);
     }
     
     private static int solve(int minNum, int maxNum, int maxDen) {

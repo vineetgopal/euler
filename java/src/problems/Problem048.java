@@ -5,8 +5,8 @@ import java.math.BigInteger;
 public class Problem048 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(1,1000, (long) 1e10));
+    public String solve() {
+        return "" + solve(1,1000, (long) 1e10);
     }
     
     private static long solve(int start, int finish, long mod) {

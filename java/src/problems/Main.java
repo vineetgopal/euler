@@ -10,15 +10,21 @@ public class Main {
 //        for (int i = 1; i <= times.size(); i++) {
 //            System.out.printf("Problem %d: %fms\n", i, times.get(i-1));
 //        }
-        System.out.printf("Running time: %fms\n", testRunningTime(68, 1));
+        System.out.printf("Running time: %fms\n", testRunningTime(49, 1));
     }
     
+    public static void runProblem(int problemNum) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+        Problem problem = getProblem(problemNum);
+        System.out.println(problem.solve());
+    }
     public static double testRunningTime(int problemNum, int times) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
         Problem problem = getProblem(problemNum);
         long time = System.nanoTime();
+        String answer = "";
         for (int i = 0; i < times; i++) {
-            problem.solve();
+            answer = problem.solve();
         }
+        System.out.println("Answer: " + answer);
         double timeTaken = (System.nanoTime() - time) / 1e6 / times;
         return timeTaken;
     }

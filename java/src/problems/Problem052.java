@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class Problem052 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(6));
+    public String solve() {
+        return "" + solve(6);
     }
     
     private static int solve(int maxMultiply) {

@@ -12,7 +12,7 @@ import com.google.common.collect.Sets;
 public class Problem049 implements Problem {
 
     @Override
-    public void solve() {
+    public String solve() {
         Set<Integer> primes = Sets.newHashSet(CollectionsUtil.getTrueIndices(MathUtil.primeSieve(9999)));
         Map<String, TreeSet<Integer>> digits = Maps.newHashMap();
         for (int prime : primes) {
@@ -29,12 +29,18 @@ public class Problem049 implements Problem {
             for (int i = 0; i < list.size() - 2; i++) {
                 for (int j = i+1; j < list.size() - 1; j++) {
                     if (set.contains(2*list.get(j) - list.get(i))) {
-                        System.out.println("" + list.get(i) + list.get(j) + (2*list.get(j) - list.get(i)));
+                        String string = "" + list.get(i) + list.get(j) + (2*list.get(j) - list.get(i));
+                        
+                        // there are only two answers, and the problem gives this one in the statement.
+                        if (!string.equals("148748178147")) {
+                            return string;
+                        }
                     }
                 }
             }
         }
-        System.out.println(digits.get("1478"));
+        return null;
+//        System.out.println(digits.get("1478"));
     }
 
 }

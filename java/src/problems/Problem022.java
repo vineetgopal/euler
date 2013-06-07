@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Problem022 implements Problem{
 
     @Override
-    public void solve() {
+    public String solve() {
         Scanner scanner;
         try {
             scanner = new Scanner(new File("Problem022.txt"));
@@ -19,7 +19,7 @@ public class Problem022 implements Problem{
         for (int i = 0; i < names.length; i++) {
             names[i] = names[i].replace("\"", "").toUpperCase();
         }
-        System.out.println(solve(names));
+        return "" + solve(names);
     }
     
     private static long solve(String[] names) {

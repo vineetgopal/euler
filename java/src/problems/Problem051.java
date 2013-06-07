@@ -12,8 +12,8 @@ import com.google.common.collect.Sets;
 public class Problem051 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(8));
+    public String solve() {
+        return "" + solve(8);
     }
     
     private static int solve(int size) {

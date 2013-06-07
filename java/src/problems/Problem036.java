@@ -7,8 +7,8 @@ import util.StringUtil;
 public class Problem036 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(1000000));
+    public String solve() {
+        return "" + solve(1000000);
     }
     
     private static long solve(int limit) {

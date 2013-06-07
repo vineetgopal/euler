@@ -9,8 +9,8 @@ import com.google.common.collect.Multiset;
 
 public class Problem005 implements Problem {
     @Override
-    public void solve() {
-        System.out.println(solve(20));
+    public String solve() {
+        return "" + solve(20);
     }
     
     private static int solve(int limit) {

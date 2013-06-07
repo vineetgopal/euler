@@ -4,8 +4,8 @@ import util.MathUtil;
 
 public class Problem007 implements Problem {
     @Override
-    public void solve() {
-        System.out.println(solve(10001));
+    public String solve() {
+        return "" + solve(10001);
     }
     
     /**

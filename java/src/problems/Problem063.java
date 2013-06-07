@@ -4,7 +4,7 @@ package problems;
 public class Problem063 implements Problem {
 
     @Override
-    public void solve() {
+    public String solve() {
         int count = 0;
         for (int numDigits = 1; ; numDigits++) {
             int x = (int) (Math.ceil(Math.pow(10, (numDigits-1.0)/numDigits)));
@@ -14,7 +14,6 @@ public class Problem063 implements Problem {
                 count += (10-x);
             }
         }
-        System.out.println(count);
+        return "" + count;
     }
-
 }

@@ -3,10 +3,10 @@ package problems;
 public class Problem014 implements Problem{
     private int[] lengths;
     @Override
-    public void solve() {
+    public String solve() {
         int limit = 1000000;
         lengths = new int[limit];
-        System.out.println(solve(limit));
+        return "" + solve(limit);
     }
     
     private int solve(int limit) {

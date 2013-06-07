@@ -5,8 +5,8 @@ public class Problem025 implements Problem{
     private static double PHI = (1+Math.sqrt(5)) / 2;
     private static double PSI = (1-Math.sqrt(5)) / 2;
     @Override
-    public void solve() {
-        System.out.println(solve(1000));
+    public String solve() {
+        return "" + solve(1000);
     }
     
 //    private static int bigIntegerSolve(int numDigits) {

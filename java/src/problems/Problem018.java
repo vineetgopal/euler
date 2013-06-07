@@ -6,7 +6,7 @@ import util.StringUtil;
 public class Problem018 implements Problem{
 
     @Override
-    public void solve() {
+    public String solve() {
         String string = "75\n" +
                         "95 64\n" +
                         "17 47 82\n" +
@@ -24,7 +24,7 @@ public class Problem018 implements Problem{
                         "04 62 98 27 23 09 70 98 73 93 38 53 60 04 23";
         String[] array = string.split("\n");
         int[][] triangle = StringUtil.getTriangle(array);
-        System.out.println(solve(triangle));
+        return "" + solve(triangle);
     }
     
     /**

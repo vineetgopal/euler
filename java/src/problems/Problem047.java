@@ -5,8 +5,8 @@ import util.MathUtil;
 public class Problem047 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(4,4));
+    public String solve() {
+        return "" + solve(4,4);
     }
     
     private static int solve(int consecutive, int divisors) {

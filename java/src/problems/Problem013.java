@@ -5,7 +5,7 @@ import java.math.BigInteger;
 public class Problem013 implements Problem {
 
     @Override
-    public void solve() {
+    public String solve() {
         String string = "37107287533902102798797998220837590246510135740250\n" +
                         "46376937677490009712648124896970078050417018260538\n" +
                         "74324986199524741059474233309513058123726617309629\n" +
@@ -107,7 +107,7 @@ public class Problem013 implements Problem {
                         "20849603980134001723930671666823555245252804609722\n" +
                         "53503534226472524250874054075591789781264330331690";
         String[] array = string.split("\n");
-        System.out.println(solve(array, 10));
+        return "" + solve(array, 10);
     }
     
     public static String solve(String[] array, int digits) {

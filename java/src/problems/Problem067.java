@@ -10,7 +10,7 @@ import util.StringUtil;
 public class Problem067 implements Problem {
 
     @Override
-    public void solve() {
+    public String solve() {
         String string = "";
         Scanner scanner;
         try {
@@ -22,7 +22,7 @@ public class Problem067 implements Problem {
             string += scanner.nextLine() + "\n";
         }
         int[][] triangle = StringUtil.getTriangle(string.split("\n"));
-        System.out.println(solve(triangle));
+        return "" + solve(triangle);
     }
     
 

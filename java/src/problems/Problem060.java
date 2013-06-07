@@ -14,8 +14,8 @@ import com.google.common.collect.Sets;
 public class Problem060 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(5));
+    public String solve() {
+        return "" + solve(5);
     }
     
     private static int solve(int numPrimes) {

@@ -9,7 +9,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
 public class Problem064 implements Problem {
-    public void solve() {
+    public String solve() {
         int total = 0;
         for (int i = 1; i <= 10000; i++) {
             if ((Math.sqrt(i) % 1 > 0.00001)) {
@@ -22,7 +22,7 @@ public class Problem064 implements Problem {
                 }
             }
         }
-        System.out.println(total);
+        return "" + total;
     }
     
     public static List<Value> getSequence(int sqrt) {

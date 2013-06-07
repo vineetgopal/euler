@@ -5,14 +5,14 @@ import java.util.Arrays;
 public class Problem031 implements Problem {
     private int[][] dp;
     @Override
-    public void solve() {
+    public String solve() {
         int desired = 200;
         int[] values = new int[] {1, 2, 5, 10, 20, 50, 100, 200};
         dp = new int[desired+1][values.length];
         for (int[] array : dp) {
             Arrays.fill(array, -1);
         }
-        System.out.println(solve(desired, values));
+        return "" + solve(desired, values);
     }
     
     private int solve(int desired, int[] values) {

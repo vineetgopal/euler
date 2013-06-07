@@ -10,8 +10,8 @@ import com.google.common.collect.Sets;
 public class Problem068 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(10, 16));
+    public String solve() {
+        return "" + solve(10, 16);
     }
     
     private static String solve(int num, int desiredLength) {

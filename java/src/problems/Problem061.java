@@ -14,8 +14,8 @@ import com.google.common.collect.Maps;
 public class Problem061 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(4,2));
+    public String solve() {
+        return "" + solve(4,2);
     }
     
     private static int solve(int numDigits, int numDigitsCycle) {

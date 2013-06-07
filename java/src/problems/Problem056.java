@@ -7,8 +7,8 @@ import util.StringUtil;
 public class Problem056 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(1,100,1,100));
+    public String solve() {
+        return "" + solve(1,100,1,100);
     }
     
     private static int solve(int minA, int maxA, int minB, int maxB) {

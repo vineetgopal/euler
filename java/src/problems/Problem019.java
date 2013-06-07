@@ -5,8 +5,8 @@ import java.util.Calendar;
 public class Problem019 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(1901, 1, 1, 2000, 12, 31));
+    public String solve() {
+        return "" + solve(1901, 1, 1, 2000, 12, 31);
     }
     
     private static int solve(int startYear, int startMonth, int startDate, int endYear, int endMonth, int endDate) {

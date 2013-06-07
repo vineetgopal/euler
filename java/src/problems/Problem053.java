@@ -4,8 +4,8 @@ package problems;
 public class Problem053 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(1,100, 1000000));
+    public String solve() {
+        return "" + solve(1,100, 1000000);
     }
     
     private static int solve(int minN, int maxN, int limit) {

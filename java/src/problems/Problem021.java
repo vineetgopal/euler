@@ -6,8 +6,8 @@ import util.MathUtil;
 public class Problem021 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(10000));
+    public String solve() {
+        return "" + solve(10000);
     }
     
     private static int solve(int max) {

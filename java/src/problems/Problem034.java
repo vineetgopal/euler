@@ -14,7 +14,7 @@ public class Problem034 implements Problem {
         }
     }
     @Override
-    public void solve() {
+    public String solve() {
         int n = 1;
         while (n*MathUtil.factorial(9) > Math.pow(10, n-1)) {
             n++;
@@ -32,7 +32,7 @@ public class Problem034 implements Problem {
                 i = (i/shift + 1)*shift - 1;
             }
         }
-        System.out.println(sum);
+        return "" + sum;
     }
     
     private static long sumFactorials(long i) {

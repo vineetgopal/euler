@@ -2,8 +2,8 @@ package problems;
 
 public class Problem002 implements Problem {
     @Override
-    public void solve() {
-        System.out.println(solve(4000000));
+    public String solve() {
+        return "" + solve(4000000);
     }
     
     /**

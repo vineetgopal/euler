@@ -5,8 +5,8 @@ import util.NumberUtil;
 public class Problem017 implements Problem {
 
     @Override
-    public void solve() {
-        System.out.println(solve(1, 1000));
+    public String solve() {
+        return "" + solve(1, 1000);
     }
     
     private static int solve(int start, int finish) {

@@ -7,7 +7,7 @@ import com.google.common.collect.Maps;
 public class Problem043 implements Problem {
 
     @Override
-    public void solve() {
+    public String solve() {
         Map<Integer, Integer> divisors = Maps.newHashMap();
         divisors.put(1, 2);
         divisors.put(2, 3);
@@ -16,7 +16,7 @@ public class Problem043 implements Problem {
         divisors.put(5, 11);
         divisors.put(6, 13);
         divisors.put(7, 17);
-        System.out.println(solve(divisors, 3));
+        return "" + solve(divisors, 3);
     }
     
     private static long solve(Map<Integer, Integer> divisors, int length) {
