@@ -6,11 +6,11 @@ import com.google.common.collect.Lists;
 
 public class Main {
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-        List<Double> times = runAllProblems(1);
-        for (int i = 1; i <= times.size(); i++) {
-            System.out.printf("Problem %d: %fms\n", i, times.get(i-1));
-        }
-//        System.out.printf("Running time: %fms\n", testRunningTime(65, 1));
+//        List<Double> times = runAllProblems(1);
+//        for (int i = 1; i <= times.size(); i++) {
+//            System.out.printf("Problem %d: %fms\n", i, times.get(i-1));
+//        }
+        System.out.printf("Running time: %fms\n", testRunningTime(68, 1));
     }
     
     public static double testRunningTime(int problemNum, int times) throws ClassNotFoundException, InstantiationException, IllegalAccessException {

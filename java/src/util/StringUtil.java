@@ -9,10 +9,22 @@ import com.google.common.collect.Sets;
 
 public class StringUtil {
     public static Set<Character> DIGITS = Sets.newHashSet();
+    
     static {
         for (int i = 0; i <= 9; i++) {
             DIGITS.add(Character.forDigit(i, 10));
         }
+    }
+    
+    public static int[][] getTriangle(String[] array) {
+        int[][] triangle = new int[array.length][array.length];
+        for (int i = 0; i < array.length; i++) {
+            String[] line = array[i].split(" ");
+            for (int j = 0; j < line.length; j++) {
+                triangle[i][j] = Integer.parseInt(line[j]);
+            }
+        }
+        return triangle;
     }
     public static int[][] read2DArray(String string, String delim, String rowDelim) {
         String[] rows = string.split(rowDelim);

@@ -1,5 +1,6 @@
 package util;
 
+import java.util.BitSet;
 import java.util.Collection;
 import java.util.List;
 
@@ -96,6 +97,14 @@ public class CollectionsUtil {
             if(array[i]) {
                 list.add(i);
             }
+        }
+        return list;
+    }
+    
+    public static List<Integer> getTrueIndices(BitSet bitset, int start, int end) {
+        List<Integer> list = Lists.newArrayList();
+        for (int index = bitset.nextSetBit(start); index >=0 && index <= end; index = bitset.nextSetBit(index+1)) {
+            list.add(index);
         }
         return list;
     }

@@ -14,6 +14,9 @@ public class Problem064 implements Problem {
         for (int i = 1; i <= 10000; i++) {
             if ((Math.sqrt(i) % 1 > 0.00001)) {
                 List<Value> sequence = getSequence(i);
+                if (i == 3) {
+                    System.out.println(sequence);
+                }
                 if (sequence.size() % 2 == 1) {
                     total++;
                 }
@@ -27,6 +30,9 @@ public class Problem064 implements Problem {
         Set<Value> set = Sets.newHashSet();
         Value value = new Value(1, sqrt, (int) Math.sqrt(sqrt), 1);
         while (!set.contains(value)) {
+            if (sqrt == 7) {
+                System.out.println(value.getInt());
+            }
             values.add(value);
             set.add(value);
             value = value.getNextValue();
@@ -70,6 +76,11 @@ class Value {
         return new Value(nextCoeff, sqrt, -nextSubtr, nextDenom);
     }
     
+    @Override
+    public String toString() {
+        return "[" + coeff +", "+ sqrt + ", " + subtr + ", " + denom + "]";
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;

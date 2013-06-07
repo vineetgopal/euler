@@ -2,6 +2,7 @@ package util;
 
 import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.BitSet;
 import java.util.List;
 import java.util.Set;
 
@@ -278,6 +279,19 @@ public class MathUtil {
             }
         }
         return array;
+    }
+    
+    public static BitSet primeSieveBitSet(int max) {
+        BitSet bitset = new BitSet(max+1);
+        bitset.set(2, max+1);
+        for (int i = 2; i <= max / 2; i++) {
+            if (bitset.get(i)) {
+                for (int j = 2 * i; j <= max; j += i) {
+                    bitset.clear(j);
+                }
+            }
+        }
+        return bitset;
     }
     
     public static long choose(int n, int k) {

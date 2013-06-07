@@ -1,5 +1,6 @@
 package problems;
 
+import java.util.BitSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -27,7 +28,15 @@ public class Problem060 implements Problem {
             boolean[] primes = MathUtil.primeSieve(limit2-1);
             List<Integer> list = CollectionsUtil.getTrueIndices(primes, 0, limit);
             Set<Integer> set = Sets.newHashSet(list);
-            System.out.println(System.currentTimeMillis() - time);
+            if (numDigits == 4) {
+                System.out.println(System.currentTimeMillis() - time);
+            }
+            time = System.currentTimeMillis();
+            BitSet bitset = MathUtil.primeSieveBitSet(limit2-1);
+            list = CollectionsUtil.getTrueIndices(bitset, 0, limit);
+            if (numDigits == 4) {
+                System.out.println(System.currentTimeMillis() - time);
+            }
             for (int prime : set) {
                 map.put(prime, Sets.<Integer>newHashSet(prime));
             }
@@ -39,7 +48,7 @@ public class Problem060 implements Problem {
                     }
                 }
             }
-            System.out.println(System.currentTimeMillis() - time);
+//            System.out.println(System.currentTimeMillis() - time);
             for (int prime : map.keySet()) {
                 if (map.get(prime).size() < numPrimes) {
                     continue;
@@ -58,8 +67,8 @@ public class Problem060 implements Problem {
                             }
                         }
                         if (intersection.size() >= numPrimes) {
-                            System.out.println(intersection);
-                            System.out.println(System.currentTimeMillis() - time);
+//                            System.out.println(intersection);
+//                            System.out.println(System.currentTimeMillis() - time);
                             return CollectionsUtil.sum(intersection);
                         }
                     }

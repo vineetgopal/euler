@@ -1,6 +1,7 @@
 package problems;
 
 import util.CollectionsUtil;
+import util.StringUtil;
 
 public class Problem018 implements Problem{
 
@@ -22,13 +23,7 @@ public class Problem018 implements Problem{
                         "63 66 04 68 89 53 67 30 73 16 69 87 40 31\n" +
                         "04 62 98 27 23 09 70 98 73 93 38 53 60 04 23";
         String[] array = string.split("\n");
-        int[][] triangle = new int[array.length][array.length];
-        for (int i = 0; i < array.length; i++) {
-            String[] line = array[i].split(" ");
-            for (int j = 0; j < line.length; j++) {
-                triangle[i][j] = Integer.parseInt(line[j]);
-            }
-        }
+        int[][] triangle = StringUtil.getTriangle(array);
         System.out.println(solve(triangle));
     }
     
