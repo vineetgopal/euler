@@ -3,10 +3,12 @@ package util;
 import java.util.BitSet;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multiset;
+import com.google.common.collect.Sets;
 import com.google.common.primitives.Ints;
 
 
@@ -107,6 +109,32 @@ public class CollectionsUtil {
             list.add(index);
         }
         return list;
+    }
+    
+    public static <E> Set<Set<E>> combinations(List<E> list, int size) {
+        Set<Set<E>> ret = Sets.newHashSet();
+        if (size == 0) {
+            return ret;
+        } else if (size == 1) {
+            for (E e : list) {
+                Set<E> s = Sets.newHashSet();
+                s.add(e);
+                ret.add(s);
+            }
+            return ret;
+        } else {
+            for (int i = 0; i < list.size(); i++) {
+                E e = list.remove(i);
+                Set<Set<E>> r = combinations(list, size - 1);
+                for (Set<E> s : r) {
+                    s.add(e);
+                    ret.add(s);
+                }
+                list.add(i, e);
+            }
+            return ret;
+        }
+        
     }
     
     

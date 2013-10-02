@@ -3,14 +3,16 @@ package problems;
 import java.util.List;
 
 import com.google.common.collect.Lists;
-
 public class Main {
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 //        List<Double> times = runAllProblems(1);
 //        for (int i = 1; i <= times.size(); i++) {
 //            System.out.printf("Problem %d: %fms\n", i, times.get(i-1));
 //        }
-        System.out.printf("Running time: %fms\n", testRunningTime(49, 1));
+//        System.out.println(System.currentTimeMillis() - time);
+//        List<Integer> set = Lists.newArrayList(1,2,3);
+//        System.out.println(CollectionsUtil.combinations(set, 2));
+        System.out.printf("Running time: %fms\n", testRunningTime(70, 1));
     }
     
     public static void runProblem(int problemNum) throws ClassNotFoundException, InstantiationException, IllegalAccessException {

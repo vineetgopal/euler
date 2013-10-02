@@ -261,8 +261,25 @@ public class MathUtil {
     }
     
     public static boolean isPrime(int num) {
-            return new BigInteger("" + num).isProbablePrime(30);
+        if (num == 2) { return true; }
+        if (num % 2 == 0) { return false; }
+        if (num == 3 || num == 5 || num == 7) { return true; }
+        if (num % 3 == 0) { return false; };
+        long factor = 5;
+        long max = (int) Math.sqrt(num) + 1;
+        while (factor <= max) {
+            if (num % factor == 0) {
+                return false;
+            } else if (num % (factor+2) == 0) {
+                return false;
+            }
+            factor += 6;
+        }
+        return true;
     }
+//    public static boolean isPrime(int num) {
+//            return new BigInteger("" + num).isProbablePrime(30);
+//    }
     
     public static boolean isPrime(long num) {
             return new BigInteger("" + num).isProbablePrime(10);
