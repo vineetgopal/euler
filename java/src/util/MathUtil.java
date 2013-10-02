@@ -277,6 +277,16 @@ public class MathUtil {
         }
         return true;
     }
+    
+    public static int phi(int n) {
+        Set<Integer> divisors = primeFactors(n);
+        int phi = n;
+        for (int num : divisors) {
+            phi -= phi / num;
+        }
+        return phi;
+    }
+
 //    public static boolean isPrime(int num) {
 //            return new BigInteger("" + num).isProbablePrime(30);
 //    }
