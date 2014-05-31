@@ -1,6 +1,5 @@
 package problems;
 
-import util.MathUtil;
 
 public class Problem073 implements Problem {
 

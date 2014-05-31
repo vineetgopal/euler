@@ -12,7 +12,7 @@ public class Main {
 //        System.out.println(System.currentTimeMillis() - time);
 //        List<Integer> set = Lists.newArrayList(1,2,3);
 //        System.out.println(CollectionsUtil.combinations(set, 2));
-        System.out.printf("Running time: %fms\n", testRunningTime(74, 1));
+        System.out.printf("Running time: %fms\n", testRunningTime(78, 1));
     }
     
     public static void runProblem(int problemNum) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
